@@ -22,7 +22,7 @@ export function xmlHandler() {
 }
 
 function xmlCharset(data: Buffer): string | undefined {
-    const tags = matchBuffer(data, /<\?xml.*?encoding=.*?\?>/ig)
+    const tags = matchBuffer(data, /<\?xml.*?encoding=.*?\?>/ig, "<>")
     if (!tags) return
 
     for (const tag of tags) {

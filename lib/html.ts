@@ -18,7 +18,7 @@ export function htmlHandler() {
             return /^text\/html/.test(type) && (!/charset=/.test(type) || /charset=UTF-8/.test(type))
         })
         .getBuffer((body, _, res) => {
-            const tags = matchBuffer(body, /<meta(?:.*?\Wcharset=.*?)\/?>/ig)
+            const tags = matchBuffer(body, /<meta(?:.*?\Wcharset=.*?)\/?>/ig, "<>")
             if (!tags) return
 
             let newType: string | undefined
