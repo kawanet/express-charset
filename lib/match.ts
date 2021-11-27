@@ -2,20 +2,35 @@
  * https://github.com/kawanet/express-charset
  */
 
-export function matchBuffer(data: Buffer, regexp: RegExp) {
+export function matchBuffer(data: Buffer, regexp: RegExp, tag: string) {
     const {length} = data
 
+    const open = tag.charCodeAt(0) || 0
+    const close = tag.charCodeAt(tag.length - 1) || -1
+
     for (let i = 0; i < length; i++) {
-        let j = i
-        for (; j < length; j++) {
+
+        // find the open character
+        for (; i < length; i++) {
             const c = data[i]
+            if (c > 0x7E) return; // non US-ASCII
+            if (c === open) break;
+        }
+
+        const pos = i
+
+        // find the close character or a line break
+        for (; i < length; i++) {
+            const c = data[i]
+            if (c === close) break;
             if (c === 0x0A) break; // LF
             if (c === 0x0D) break; // CR
-            if (c > 0x7E) break; // non US-ASCII
+            if (c > 0x7E) return; // non US-ASCII
         }
-        if (i === j) continue
 
-        const matched = data.subarray(i, j).toString().match(regexp)
+        if (pos === i) continue
+        const line = String(data.subarray(pos, i + 1))
+        const matched = line.match(regexp)
 
         // matched
         if (matched?.length) return matched

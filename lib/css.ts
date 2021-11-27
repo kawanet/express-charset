@@ -33,7 +33,7 @@ export function cssHandler() {
  */
 
 function cssCharset(data: Buffer): string | undefined {
-    const tags = matchBuffer(data, /@charset[^;]+/ig)
+    const tags = matchBuffer(data, /@charset[^;]+/ig, "@;")
     if (!tags) return
 
     for (const tag of tags) {
