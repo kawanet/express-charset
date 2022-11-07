@@ -50,7 +50,7 @@ $ curl -sv http://127.0.0.1:3000/utf-8/data.xml 2>&1 | grep -i content-type:
 
 MIT License
 
-Copyright (c) 2021 Yusuke Kawasaki
+Copyright (c) 2021-2022 Yusuke Kawasaki
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
