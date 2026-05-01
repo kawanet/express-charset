@@ -1,15 +1,17 @@
 /**
  * Parallel test entry for the Express 5 line.
+ *
+ * Imports each per-topic suite from test/lib/ and runs them as describe
+ * blocks against the Express 5 factory.
  */
 
 import express from "express5"
-import {
-    runCompressedTests,
-    runCssTests,
-    runHtmlTests,
-    runLargeHeadTests,
-    runXmlTests,
-} from "./lib/shared.ts"
+
+import {runCompressedTests} from "./lib/compressed.ts"
+import {runCssTests} from "./lib/css.ts"
+import {runHtmlTests} from "./lib/html.ts"
+import {runLargeHeadTests} from "./lib/large-head.ts"
+import {runXmlTests} from "./lib/xml.ts"
 
 const LABEL = "express5"
 

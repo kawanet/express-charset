@@ -45,12 +45,12 @@
   ],
   "homepage": "https://github.com/kawanet/express-charset#readme",
   "keywords": [
-    "expressjs",
-    "middleware",
-    "content-type",
     "charset",
-    "html",
+    "content-type",
     "css",
+    "expressjs",
+    "html",
+    "middleware",
     "xml"
   ],
   "license": "MIT",
