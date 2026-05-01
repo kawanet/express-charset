@@ -1,5 +1,5 @@
 /**
- * express 5 系列向けの並列テストエントリ
+ * Parallel test entry for the Express 5 line.
  */
 
 import express from "express5"

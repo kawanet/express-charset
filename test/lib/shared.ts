@@ -1,8 +1,8 @@
 /**
  * Shared test bodies used by both express4 and express5 test files.
  *
- * 各テスト関数は express の factory を受け取り、その上で
- * expressCharset() のミドルウェアを動作確認する。
+ * Each helper takes the Express factory as an argument and exercises the
+ * expressCharset() middleware on an app built from it.
  */
 
 import {strict as assert} from "node:assert"
@@ -14,11 +14,11 @@ import {responseHandler} from "express-intercept"
 
 import {expressCharset} from "../../lib/index.ts"
 
-// 同じ test/htdocs/ を両 express バージョンから共有する
+// Both Express versions share the same test/htdocs/ tree.
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const HTDOCS = path.join(__dirname, "..", "htdocs")
 
-// Node 22+ の assert.match を前提にしてよい
+// Node 22+ assert.match is fine to assume here.
 const assert_match = (str: string, re: RegExp): void => {
     assert.ok(re.test(str), JSON.stringify({expected: re.source, actual: str}))
 }
