@@ -3,7 +3,7 @@
  */
 
 import {responseHandler} from "express-intercept"
-import {matchBuffer} from "./match"
+import {matchBuffer} from "./match.ts"
 
 export function htmlHandler() {
     return responseHandler()
@@ -15,7 +15,7 @@ export function htmlHandler() {
              * https://github.com/broofa/mime/blob/v1.x/mime.js#L101
              * Content-Type: text/html; charset=UTF-8
              */
-            return /^text\/html/.test(type) && (!/charset=/.test(type) || /charset=UTF-8/.test(type))
+            return /^text\/html/.test(type) && (!/charset=/.test(type) || /charset=UTF-8/i.test(type))
         })
         .getBuffer((body, _, res) => {
             const tags = matchBuffer(body, /<meta(?:.*?\Wcharset=.*?)\/?>/ig, "<>")

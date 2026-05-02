@@ -3,7 +3,7 @@
  */
 
 import {responseHandler} from "express-intercept"
-import {matchBuffer} from "./match"
+import {matchBuffer} from "./match.ts"
 
 export function xmlHandler() {
     return responseHandler()
@@ -23,7 +23,7 @@ export function xmlHandler() {
 
 function xmlCharset(data: Buffer): string | undefined {
     const tags = matchBuffer(data, /<\?xml.*?encoding=.*?\?>/ig, "<>")
-    if (!tags) return
+    if (!tags) return undefined
 
     for (const tag of tags) {
         /**
@@ -32,4 +32,5 @@ function xmlCharset(data: Buffer): string | undefined {
         const charset = tag.split(/\Wencoding=['"]?([^'"?]+)/i)[1]
         if (charset) return charset
     }
+    return undefined
 }

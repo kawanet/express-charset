@@ -2,7 +2,7 @@
  * https://github.com/kawanet/express-charset
  */
 
-export function matchBuffer(data: Buffer, regexp: RegExp, tag: string) {
+export function matchBuffer(data: Buffer, regexp: RegExp, tag: string): RegExpMatchArray | undefined {
     const {length} = data
 
     const open = tag.charCodeAt(0) || 0
@@ -13,8 +13,8 @@ export function matchBuffer(data: Buffer, regexp: RegExp, tag: string) {
         // find the open character
         for (; i < length; i++) {
             const c = data[i]
-            if (c > 0x7E) return; // non US-ASCII
-            if (c === open) break;
+            if (c > 0x7E) return undefined // non US-ASCII
+            if (c === open) break
         }
 
         const pos = i
@@ -22,10 +22,10 @@ export function matchBuffer(data: Buffer, regexp: RegExp, tag: string) {
         // find the close character or a line break
         for (; i < length; i++) {
             const c = data[i]
-            if (c === close) break;
-            if (c === 0x0A) break; // LF
-            if (c === 0x0D) break; // CR
-            if (c > 0x7E) return; // non US-ASCII
+            if (c === close) break
+            if (c === 0x0A) break // LF
+            if (c === 0x0D) break // CR
+            if (c > 0x7E) return undefined // non US-ASCII
         }
 
         if (pos === i) continue
@@ -37,5 +37,5 @@ export function matchBuffer(data: Buffer, regexp: RegExp, tag: string) {
     }
 
     // unmatched
-    return
+    return undefined
 }

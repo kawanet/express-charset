@@ -3,7 +3,7 @@
  */
 
 import {responseHandler} from "express-intercept"
-import {matchBuffer} from "./match"
+import {matchBuffer} from "./match.ts"
 
 export function cssHandler() {
     return responseHandler()
@@ -15,7 +15,7 @@ export function cssHandler() {
              * https://github.com/broofa/mime/blob/v1.x/mime.js#L101
              * Content-Type: text/css; charset=UTF-8
              */
-            return /^text\/css/.test(type) && (!/charset=/.test(type) || /charset=UTF-8/.test(type))
+            return /^text\/css/.test(type) && (!/charset=/.test(type) || /charset=UTF-8/i.test(type))
         })
         .getBuffer((body, _, res) => {
 
@@ -34,10 +34,11 @@ export function cssHandler() {
 
 function cssCharset(data: Buffer): string | undefined {
     const tags = matchBuffer(data, /@charset[^;]+/ig, "@;")
-    if (!tags) return
+    if (!tags) return undefined
 
     for (const tag of tags) {
         const charset = tag.split(/@charset\s+['"]?([^'";]+)/i)[1]
-        if (charset) return charset;
+        if (charset) return charset
     }
+    return undefined
 }

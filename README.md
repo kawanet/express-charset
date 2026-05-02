@@ -5,11 +5,13 @@
 
 Set `Content-Type: text/xxxx; charset=xxxx` for HTML/CSS/XML files.
 
+Works with Express 4 and 5.
+
 ## SYNOPSIS
 
 ```js
-const express = require("express");
-const {expressCharset} = require("express-charset");
+import express from "express";
+import {expressCharset} from "express-charset";
 
 const app = express();
 app.use(expressCharset());
@@ -50,7 +52,7 @@ $ curl -sv http://127.0.0.1:3000/utf-8/data.xml 2>&1 | grep -i content-type:
 
 MIT License
 
-Copyright (c) 2021-2022 Yusuke Kawasaki
+Copyright (c) 2021-2026 Yusuke Kawasaki
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
