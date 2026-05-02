@@ -1,26 +1,26 @@
 {
   "name": "express-charset",
   "description": "Content-Type: text/xxxx; charset=xxxx",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "@kawanet",
   "bugs": {
     "url": "https://github.com/kawanet/express-charset/issues"
   },
   "dependencies": {
-    "express-intercept": "^1.2.0"
+    "express-intercept": "^1.2.2"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^16.0.2",
-    "@rollup/plugin-sucrase": "^5.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-sucrase": "^5.1.0",
     "@types/express": "^5",
     "@types/express4": "npm:@types/express@^4",
     "@types/express5": "npm:@types/express@^5",
-    "@types/node": "^24.0.0",
-    "@types/supertest": "^6.0.2",
+    "@types/node": "^24.12.2",
+    "@types/supertest": "^7.2.0",
     "express4": "npm:express@^4",
     "express5": "npm:express@^5",
-    "rollup": "^4.52.4",
-    "supertest": "^7.0.0",
+    "rollup": "^4.60.2",
+    "supertest": "^7.2.2",
     "typescript": "^5.9.3"
   },
   "devEngines": {
