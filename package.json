@@ -35,11 +35,9 @@
   },
   "exports": {
     ".": {
+      "types": "./types/express-charset.d.ts",
       "require": "./dist/express-charset.cjs",
-      "import": {
-        "types": "./types/express-charset.d.ts",
-        "default": "./dist/express-charset.mjs"
-      }
+      "import": "./dist/express-charset.mjs"
     }
   },
   "files": [
