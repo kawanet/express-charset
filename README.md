@@ -1,6 +1,6 @@
 # express-charset
 
-[![Node.js CI](https://github.com/kawanet/express-charset/workflows/Node.js%20CI/badge.svg?branch=main)](https://github.com/kawanet/express-charset/actions/)
+[![Node.js CI](https://github.com/kawanet/express-charset/actions/workflows/nodejs.yml/badge.svg?branch=main)](https://github.com/kawanet/express-charset/actions/)
 [![npm version](https://img.shields.io/npm/v/express-charset)](https://www.npmjs.com/package/express-charset)
 
 Set `Content-Type: text/xxxx; charset=xxxx` for HTML/CSS/XML files.
