@@ -4,4 +4,6 @@
 
 import type {RequestHandler} from "express";
 
+export {} // external module indicator
+
 export const expressCharset: () => RequestHandler;
