@@ -13,9 +13,9 @@ import {responseHandler} from "express-intercept"
 
 import {expressCharset} from "../../lib/index.ts"
 import {assert_match, HTDOCS} from "./util.ts"
-import type {ExpressFactory} from "./util.ts"
+import type {ExpressModule} from "./util.ts"
 
-export const runCompressedTests = (label: string, express: ExpressFactory): void => {
+export const runCompressedTests = (label: string, express: ExpressModule): void => {
     describe(`${label}: compressed`, () => {
         const app = express()
         app.use(expressCharset())

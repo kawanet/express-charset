@@ -12,11 +12,12 @@ import {runCssTests} from "./lib/css.ts"
 import {runHtmlTests} from "./lib/html.ts"
 import {runLargeHeadTests} from "./lib/large-head.ts"
 import {runXmlTests} from "./lib/xml.ts"
+import type {ExpressModule} from "./lib/util.ts"
 
 const LABEL = "express4"
 
-runHtmlTests(LABEL, express as unknown as () => any)
-runCssTests(LABEL, express as unknown as () => any)
-runXmlTests(LABEL, express as unknown as () => any)
-runLargeHeadTests(LABEL, express as unknown as () => any)
-runCompressedTests(LABEL, express as unknown as () => any)
+runHtmlTests(LABEL, express as unknown as ExpressModule)
+runCssTests(LABEL, express as unknown as ExpressModule)
+runXmlTests(LABEL, express as unknown as ExpressModule)
+runLargeHeadTests(LABEL, express as unknown as ExpressModule)
+runCompressedTests(LABEL, express as unknown as ExpressModule)

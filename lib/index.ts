@@ -2,7 +2,7 @@
  * https://github.com/kawanet/express-charset
  */
 
-import type * as types from "../types/express-charset.d.ts"
+import type * as types from "express-charset"
 import {requestHandler} from "express-intercept"
 import {htmlHandler} from "./html.ts"
 import {cssHandler} from "./css.ts"

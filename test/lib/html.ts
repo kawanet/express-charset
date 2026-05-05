@@ -13,9 +13,9 @@ import supertest from "supertest"
 
 import {expressCharset} from "../../lib/index.ts"
 import {HTDOCS} from "./util.ts"
-import type {ExpressFactory} from "./util.ts"
+import type {ExpressModule} from "./util.ts"
 
-export const runHtmlTests = (label: string, express: ExpressFactory): void => {
+export const runHtmlTests = (label: string, express: ExpressModule): void => {
     const types: { [ext: string]: string } = {
         html: "text/html",
         xhtml: "application/xhtml+xml",
