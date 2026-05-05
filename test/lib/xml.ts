@@ -12,9 +12,9 @@ import supertest from "supertest"
 
 import {expressCharset} from "../../lib/index.ts"
 import {HTDOCS} from "./util.ts"
-import type {ExpressFactory} from "./util.ts"
+import type {ExpressModule} from "./util.ts"
 
-export const runXmlTests = (label: string, express: ExpressFactory): void => {
+export const runXmlTests = (label: string, express: ExpressModule): void => {
     describe(`${label}: xml`, () => {
         const app = express()
         app.use(expressCharset())

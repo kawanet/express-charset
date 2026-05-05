@@ -18,4 +18,10 @@ export const assert_match = (str: string, re: RegExp): void => {
     assert.ok(re.test(str), JSON.stringify({expected: re.source, actual: str}))
 }
 
-export type ExpressFactory = () => any
+// The full Express module/namespace value: call signature + namespace
+// methods (`.static`, `.Router`, `.json`, ...). Express ships as a
+// CommonJS `export = e` namespace, so `typeof import("express")`
+// resolves to the value of `import express from "express"` directly
+// (no `.default`). This repo pins `@types/express` to `^5`, so the
+// type baseline here is Express 5.
+export type ExpressModule = typeof import("express")
