@@ -11,8 +11,8 @@ import {describe, it} from "node:test"
 import supertest from "supertest"
 
 import {expressCharset} from "../../lib/index.ts"
-import {assert_match, HTDOCS} from "./util.ts"
 import type {ExpressModule} from "./util.ts"
+import {assert_match, HTDOCS} from "./util.ts"
 
 export const runLargeHeadTests = (label: string, express: ExpressModule): void => {
     describe(`${label}: large-head`, () => {
