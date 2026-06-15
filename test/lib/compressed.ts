@@ -6,14 +6,13 @@
  * compressed and still emit the correct charset parameter.
  */
 
+import {responseHandler} from "express-intercept"
 import {strict as assert} from "node:assert"
 import {describe, it} from "node:test"
 import supertest from "supertest"
-import {responseHandler} from "express-intercept"
-
 import {expressCharset} from "../../lib/index.ts"
-import {assert_match, HTDOCS} from "./util.ts"
 import type {ExpressModule} from "./util.ts"
+import {assert_match, HTDOCS} from "./util.ts"
 
 export const runCompressedTests = (label: string, express: ExpressModule): void => {
     describe(`${label}: compressed`, () => {
@@ -24,7 +23,7 @@ export const runCompressedTests = (label: string, express: ExpressModule): void 
         const agent = supertest(app)
 
         const encodings = ["gzip", "deflate"]
-        const files: { [path: string]: RegExp } = {
+        const files: {[path: string]: RegExp} = {
             "/euc-jp/html5.html": /EUC-JP/,
             "/shift_jis/html5.html": /Shift_JIS/,
             "/utf-8/html5.html": /utf-8/,

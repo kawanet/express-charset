@@ -9,10 +9,9 @@
 import {strict as assert} from "node:assert"
 import {describe, it} from "node:test"
 import supertest from "supertest"
-
 import {expressCharset} from "../../lib/index.ts"
-import {HTDOCS} from "./util.ts"
 import type {ExpressModule} from "./util.ts"
+import {HTDOCS} from "./util.ts"
 
 export const runCssTests = (label: string, express: ExpressModule): void => {
     describe(`${label}: css`, () => {

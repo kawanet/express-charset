@@ -6,13 +6,12 @@
  */
 
 import express from "express5"
-
 import {runCompressedTests} from "./lib/compressed.ts"
 import {runCssTests} from "./lib/css.ts"
 import {runHtmlTests} from "./lib/html.ts"
 import {runLargeHeadTests} from "./lib/large-head.ts"
-import {runXmlTests} from "./lib/xml.ts"
 import type {ExpressModule} from "./lib/util.ts"
+import {runXmlTests} from "./lib/xml.ts"
 
 const LABEL = "express5"
 

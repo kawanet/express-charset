@@ -19,7 +19,7 @@ export function cssHandler() {
         })
         .getBuffer((body, _, res) => {
 
-            const charset = cssCharset(body);
+            const charset = cssCharset(body)
             if (!charset) return
 
             const oldType = String(res!.getHeader("content-type")).replace(/;\s*charset=[^;]+/, "")

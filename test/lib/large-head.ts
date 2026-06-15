@@ -9,10 +9,9 @@
 import {strict as assert} from "node:assert"
 import {describe, it} from "node:test"
 import supertest from "supertest"
-
 import {expressCharset} from "../../lib/index.ts"
-import {assert_match, HTDOCS} from "./util.ts"
 import type {ExpressModule} from "./util.ts"
+import {assert_match, HTDOCS} from "./util.ts"
 
 export const runLargeHeadTests = (label: string, express: ExpressModule): void => {
     describe(`${label}: large-head`, () => {
@@ -21,7 +20,7 @@ export const runLargeHeadTests = (label: string, express: ExpressModule): void =
         app.use((express as any).static(HTDOCS))
         const agent = supertest(app)
 
-        const files: { [path: string]: RegExp } = {
+        const files: {[path: string]: RegExp} = {
             "/large-head/1kb.html": /EUC-JP/,
             "/large-head/2kb.html": /EUC-JP/,
             "/large-head/3kb.html": /EUC-JP/,

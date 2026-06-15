@@ -10,13 +10,12 @@
 import {strict as assert} from "node:assert"
 import {describe, it} from "node:test"
 import supertest from "supertest"
-
 import {expressCharset} from "../../lib/index.ts"
-import {HTDOCS} from "./util.ts"
 import type {ExpressModule} from "./util.ts"
+import {HTDOCS} from "./util.ts"
 
 export const runHtmlTests = (label: string, express: ExpressModule): void => {
-    const types: { [ext: string]: string } = {
+    const types: {[ext: string]: string} = {
         html: "text/html",
         xhtml: "application/xhtml+xml",
     }
@@ -24,7 +23,7 @@ export const runHtmlTests = (label: string, express: ExpressModule): void => {
     describe(`${label}: html`, () => {
         const app = express()
         app.use(expressCharset())
-        app.use((express as any).static(HTDOCS));
+        app.use((express as any).static(HTDOCS))
         const agent = supertest(app);
 
         ["html4.html", "html5.html", "xhtml.xhtml"].forEach(file => {
