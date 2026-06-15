@@ -21,7 +21,7 @@ export const runLargeHeadTests = (label: string, express: ExpressModule): void =
         app.use((express as any).static(HTDOCS))
         const agent = supertest(app)
 
-        const files: { [path: string]: RegExp } = {
+        const files: {[path: string]: RegExp} = {
             "/large-head/1kb.html": /EUC-JP/,
             "/large-head/2kb.html": /EUC-JP/,
             "/large-head/3kb.html": /EUC-JP/,

@@ -24,7 +24,7 @@ export const runCompressedTests = (label: string, express: ExpressModule): void 
         const agent = supertest(app)
 
         const encodings = ["gzip", "deflate"]
-        const files: { [path: string]: RegExp } = {
+        const files: {[path: string]: RegExp} = {
             "/euc-jp/html5.html": /EUC-JP/,
             "/shift_jis/html5.html": /Shift_JIS/,
             "/utf-8/html5.html": /utf-8/,
