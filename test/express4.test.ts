@@ -6,7 +6,6 @@
  */
 
 import express from "express4"
-
 import {runCompressedTests} from "./lib/compressed.ts"
 import {runCssTests} from "./lib/css.ts"
 import {runHtmlTests} from "./lib/html.ts"

@@ -10,7 +10,6 @@ import {responseHandler} from "express-intercept"
 import {strict as assert} from "node:assert"
 import {describe, it} from "node:test"
 import supertest from "supertest"
-
 import {expressCharset} from "../../lib/index.ts"
 import type {ExpressModule} from "./util.ts"
 import {assert_match, HTDOCS} from "./util.ts"
