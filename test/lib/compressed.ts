@@ -32,7 +32,7 @@ export const runCompressedTests = (label: string, express: ExpressModule): void 
         for (const p of Object.keys(files)) {
             for (const encoding of encodings) {
                 it(`${p} (${encoding})`, async () => {
-                    const regexp = files[p]
+                    const regexp = files[p]!
                     const res = await agent.get(p)
                         .set("accept-encoding", encoding)
                         .responseType("arraybuffer")
