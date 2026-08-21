@@ -12,7 +12,7 @@ export function matchBuffer(data: Buffer, regexp: RegExp, tag: string): RegExpMa
 
         // find the open character
         for (; i < length; i++) {
-            const c = data[i]
+            const c = data[i]!
             if (c > 0x7E) return undefined // non US-ASCII
             if (c === open) break
         }
@@ -21,7 +21,7 @@ export function matchBuffer(data: Buffer, regexp: RegExp, tag: string): RegExpMa
 
         // find the close character or a line break
         for (; i < length; i++) {
-            const c = data[i]
+            const c = data[i]!
             if (c === close) break
             if (c === 0x0A) break // LF
             if (c === 0x0D) break // CR

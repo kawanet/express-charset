@@ -29,7 +29,7 @@ export const runLargeHeadTests = (label: string, express: ExpressModule): void =
 
         for (const p of Object.keys(files)) {
             it(p, async () => {
-                const regexp = files[p]
+                const regexp = files[p]!
                 const res = await agent.get(p)
                     .responseType("arraybuffer")
                     .expect(200)
