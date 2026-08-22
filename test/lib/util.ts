@@ -7,11 +7,9 @@
 
 import {strict as assert} from "node:assert"
 import path from "node:path"
-import {fileURLToPath} from "node:url"
 
 // Both Express versions share the same test/htdocs/ tree.
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-export const HTDOCS = path.join(__dirname, "..", "htdocs")
+export const HTDOCS = path.join(process.cwd(), "test", "htdocs")
 
 // Node 22+ assert.match is fine to assume here.
 export const assert_match = (str: string, re: RegExp): void => {
