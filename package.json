@@ -1,7 +1,7 @@
 {
   "name": "express-charset",
   "description": "Content-Type: text/xxxx; charset=xxxx",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "author": "@kawanet",
   "bugs": {
     "url": "https://github.com/kawanet/express-charset/issues"
