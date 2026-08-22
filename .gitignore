@@ -4,6 +4,7 @@
 .Thumbs
 ._*
 .idea/
+builder/tests/
 dist/
 node_modules/
 npm-debug.log*
